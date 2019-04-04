@@ -4,6 +4,8 @@ spring:
 mybatis:
     typeAliasesPackage: cn.edu.dgut.educationalsystem.model
     mapperLocations: classpath:mapper/*.xml
+pagehelper:
+    helpDialect: mysql
 
 
 ---

@@ -65,6 +65,15 @@ public class EduAdminController {
         }
     }
 
+    @GetMapping("/application/")
+    @ApiOperation(value = "申请列表")
+    public Result applications(){
+        return ResultUtils.success();
+    }
+
+    
+
+
 
 
 }
