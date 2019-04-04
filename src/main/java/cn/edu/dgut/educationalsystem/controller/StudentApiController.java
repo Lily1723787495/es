@@ -59,6 +59,7 @@ public class StudentApiController {
 
     @PostMapping("/application/")
     @ApiOperation(value="提交申请表")
+    @ApiModelProperty
     public Result postApplication(Application application){
       return ResultUtils.success();
     }

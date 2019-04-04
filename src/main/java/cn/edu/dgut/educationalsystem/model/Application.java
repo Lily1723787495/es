@@ -1,7 +1,10 @@
 package cn.edu.dgut.educationalsystem.model;
 
+import io.swagger.annotations.ApiModel;
+
 import java.util.Date;
 
+@ApiModel()
 public class Application {
     private Integer appId;
 
