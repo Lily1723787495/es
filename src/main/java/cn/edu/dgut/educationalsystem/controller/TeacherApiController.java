@@ -64,7 +64,7 @@ public class TeacherApiController {
 
     @GetMapping("/application/{appId}/reject")
     @ApiOperation(value = "拒绝申请")
-    public Result dealStudentApplication(@PathVariable("appId")Integer appId,String rejectMsg){
+    public Result reject0StudentApplication(@PathVariable("appId")Integer appId,String rejectMsg){
       return ResultUtils.success();
     }
 }

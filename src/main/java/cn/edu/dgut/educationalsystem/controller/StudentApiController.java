@@ -5,9 +5,7 @@ import cn.edu.dgut.educationalsystem.model.Student;
 import cn.edu.dgut.educationalsystem.service.StudentService;
 import cn.edu.dgut.educationalsystem.utils.ResultUtils;
 import cn.edu.dgut.educationalsystem.vo.Result;
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
-import io.swagger.annotations.ApiResponse;
+import io.swagger.annotations.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

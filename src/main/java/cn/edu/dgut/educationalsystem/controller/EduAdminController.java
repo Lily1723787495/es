@@ -35,7 +35,9 @@ public class EduAdminController {
         }
     }
 
-    @GetMapping("/config")
+
+
+    @GetMapping("/config/activ")
     @ApiOperation(value="当前系统活动的配置",notes = "配置包含各类申请的开始时间和结束时间")
     @ApiResponse(code = 0,message = "成功")
     public Result getSystemConfig(){
@@ -45,6 +47,12 @@ public class EduAdminController {
         }else{
             return ResultUtils.success(systemConfig);
         }
+    }
+
+    @GetMapping("/config")
+    @ApiOperation("系统配置列表")
+    public Result getAllSystemConfig(Integer page,Integer pagesize){
+        return ResultUtils.success();
     }
 
     @PostMapping("/config")
@@ -71,9 +79,28 @@ public class EduAdminController {
         return ResultUtils.success();
     }
 
-    
+    @GetMapping("/application/{appId}/deal")
+    @ApiOperation(value = "允许申请")
+    public Result dealStudentApplication(@PathVariable("appId")Integer appId){
+        return ResultUtils.success();
+    }
 
+    @GetMapping("/application/{appId}/reject")
+    @ApiOperation(value = "拒绝申请")
+    public Result rejectStudentApplication(@PathVariable("appId")Integer appId,String rejectMsg){
+        return ResultUtils.success();
+    }
 
+    @GetMapping("/student/{studentType}/export")
+    @ApiOperation("导出重修或者补考或者缓考学生文件 稍后完善")
+    public Result exportStudent(Integer studentType){
+        return ResultUtils.success();
+    }
 
+    @GetMapping("/scores/{courseId}/export")
+    @ApiOperation(value = "根据课程 导出成绩")
+    public Result exportStudentScore(){
+        return ResultUtils.success();
+    }
 
 }
