@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.edu.dgut.educationalsystem.dao.SystemConfigMapper" >
+  <resultMap id="BaseResultMap" type="cn.edu.dgut.educationalsystem.model.SystemConfig" >
+    <id column="config_id" property="configId" jdbcType="INTEGER" />
+    <result column="start_make_up_time" property="startMakeUpTime" jdbcType="TIMESTAMP" />
+    <result column="end_make_up_time" property="endMakeUpTime" jdbcType="TIMESTAMP" />
+    <result column="start_retake_time" property="startRetakeTime" jdbcType="TIMESTAMP" />
+    <result column="end_retake_time" property="endRetakeTime" jdbcType="TIMESTAMP" />
+    <result column="start_slow_time" property="startSlowTime" jdbcType="TIMESTAMP" />
+    <result column="end_slow_time" property="endSlowTime" jdbcType="TIMESTAMP" />
+    <result column="title" property="title" jdbcType="VARCHAR" />
+    <result column="enable" property="enable" jdbcType="BIT" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    config_id, start_make_up_time, end_make_up_time, start_retake_time, end_retake_time, 
+    start_slow_time, end_slow_time, title, enable, create_time
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_system_config
+    where config_id = #{configId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from t_system_config
+    where config_id = #{configId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="cn.edu.dgut.educationalsystem.model.SystemConfig" >
+    insert into t_system_config (config_id, start_make_up_time, end_make_up_time, 
+      start_retake_time, end_retake_time, start_slow_time, 
+      end_slow_time, title, enable, 
+      create_time)
+    values (#{configId,jdbcType=INTEGER}, #{startMakeUpTime,jdbcType=TIMESTAMP}, #{endMakeUpTime,jdbcType=TIMESTAMP}, 
+      #{startRetakeTime,jdbcType=TIMESTAMP}, #{endRetakeTime,jdbcType=TIMESTAMP}, #{startSlowTime,jdbcType=TIMESTAMP}, 
+      #{endSlowTime,jdbcType=TIMESTAMP}, #{title,jdbcType=VARCHAR}, #{enable,jdbcType=BIT}, 
+      #{createTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="cn.edu.dgut.educationalsystem.model.SystemConfig" >
+    insert into t_system_config
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="configId != null" >
+        config_id,
+      </if>
+      <if test="startMakeUpTime != null" >
+        start_make_up_time,
+      </if>
+      <if test="endMakeUpTime != null" >
+        end_make_up_time,
+      </if>
+      <if test="startRetakeTime != null" >
+        start_retake_time,
+      </if>
+      <if test="endRetakeTime != null" >
+        end_retake_time,
+      </if>
+      <if test="startSlowTime != null" >
+        start_slow_time,
+      </if>
+      <if test="endSlowTime != null" >
+        end_slow_time,
+      </if>
+      <if test="title != null" >
+        title,
+      </if>
+      <if test="enable != null" >
+        enable,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="configId != null" >
+        #{configId,jdbcType=INTEGER},
+      </if>
+      <if test="startMakeUpTime != null" >
+        #{startMakeUpTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endMakeUpTime != null" >
+        #{endMakeUpTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="startRetakeTime != null" >
+        #{startRetakeTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endRetakeTime != null" >
+        #{endRetakeTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="startSlowTime != null" >
+        #{startSlowTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endSlowTime != null" >
+        #{endSlowTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="title != null" >
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="enable != null" >
+        #{enable,jdbcType=BIT},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.edu.dgut.educationalsystem.model.SystemConfig" >
+    update t_system_config
+    <set >
+      <if test="startMakeUpTime != null" >
+        start_make_up_time = #{startMakeUpTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endMakeUpTime != null" >
+        end_make_up_time = #{endMakeUpTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="startRetakeTime != null" >
+        start_retake_time = #{startRetakeTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endRetakeTime != null" >
+        end_retake_time = #{endRetakeTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="startSlowTime != null" >
+        start_slow_time = #{startSlowTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endSlowTime != null" >
+        end_slow_time = #{endSlowTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="title != null" >
+        title = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="enable != null" >
+        enable = #{enable,jdbcType=BIT},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where config_id = #{configId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.edu.dgut.educationalsystem.model.SystemConfig" >
+    update t_system_config
+    set start_make_up_time = #{startMakeUpTime,jdbcType=TIMESTAMP},
+      end_make_up_time = #{endMakeUpTime,jdbcType=TIMESTAMP},
+      start_retake_time = #{startRetakeTime,jdbcType=TIMESTAMP},
+      end_retake_time = #{endRetakeTime,jdbcType=TIMESTAMP},
+      start_slow_time = #{startSlowTime,jdbcType=TIMESTAMP},
+      end_slow_time = #{endSlowTime,jdbcType=TIMESTAMP},
+      title = #{title,jdbcType=VARCHAR},
+      enable = #{enable,jdbcType=BIT},
+      create_time = #{createTime,jdbcType=TIMESTAMP}
+    where config_id = #{configId,jdbcType=INTEGER}
+  </update>
+</mapper>
