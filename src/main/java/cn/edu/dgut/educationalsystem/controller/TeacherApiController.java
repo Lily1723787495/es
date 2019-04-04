@@ -5,9 +5,8 @@ import cn.edu.dgut.educationalsystem.vo.Result;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 @RestController
 @RequestMapping("/api/teacher/")
@@ -41,7 +40,7 @@ public class TeacherApiController {
 
     @GetMapping("/score/{recordId}/")
     @ApiOperation(value="上传成绩表")
-    public Result postStudentScore(@RequestParam("file")MultipartFile fileUpload,@PathVariable("recordId")Integer recordId){
+    public Result postStudentScore(@RequestParam("file") MultipartFile fileUpload, @PathVariable("recordId")Integer recordId){
       return ResultUtils.success();
     }
 

@@ -1,5 +1,6 @@
 package cn.edu.dgut.educationalsystem.controller;
 
+import cn.edu.dgut.educationalsystem.model.Application;
 import cn.edu.dgut.educationalsystem.model.Student;
 import cn.edu.dgut.educationalsystem.service.StudentService;
 import cn.edu.dgut.educationalsystem.utils.ResultUtils;
@@ -8,10 +9,7 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/student")
@@ -49,7 +47,7 @@ public class StudentApiController {
         return ResultUtils.success();
     }
 
-    @PostMapping("/application/")
+    @GetMapping("/application/")
     @ApiOperation(value = "当前用户的申请列表")
     public Result applications(Integer page,Integer pagesize,Integer year,Integer item){
       return ResultUtils.success();
@@ -63,7 +61,7 @@ public class StudentApiController {
 
     @PostMapping("/application/")
     @ApiOperation(value="提交申请表")
-    public Result postApplication(Applcation application){
+    public Result postApplication(Application application){
       return ResultUtils.success();
     }
 
